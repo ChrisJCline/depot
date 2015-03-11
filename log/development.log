@@ -1,0 +1,178 @@
+  [1m[36m (157.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.3ms)[0m  select sqlite_version(*)
+  [1m[36m (124.5ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateProducts (20150310015823)
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "image_url" varchar, "price" decimal(8,2), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150310015823"]]
+  [1m[35m (163.8ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-09 22:04:34 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/ccline/.rvm/gems/ruby-2.0.0-p481/gems/railties-4.2.0/lib/rails/templates/rails/welcome/index.html.erb (5.3ms)
+Completed 200 OK in 175ms (Views: 134.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-09 22:04:34 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/ccline/.rvm/gems/ruby-2.0.0-p481/gems/railties-4.2.0/lib/rails/templates/rails/welcome/index.html.erb (0.1ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/product" for 127.0.0.1 at 2015-03-09 22:06:11 -0400
+
+ActionController::RoutingError (No route matches [GET] "/product"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /home/ccline/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /home/ccline/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /home/ccline/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/ccline/.rvm/gems/ruby-2.0.0-p481/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (4.7ms)
+  Rendered /home/ccline/.rvm/gems/ruby-2.0.0-p481/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (1.4ms)
+  Rendered /home/ccline/.rvm/gems/ruby-2.0.0-p481/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (32.7ms)
+  Rendered /home/ccline/.rvm/gems/ruby-2.0.0-p481/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /home/ccline/.rvm/gems/ruby-2.0.0-p481/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.6ms)
+  Rendered /home/ccline/.rvm/gems/ruby-2.0.0-p481/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (216.8ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2015-03-09 22:06:21 -0400
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products"
+  Rendered products/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 1547ms (Views: 1543.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/products-069e88c06b889877799890854d7f4c40.css?body=1" for 127.0.0.1 at 2015-03-09 22:06:23 -0400
+
+
+Started GET "/assets/scaffolds-6a4f011ba1d3796608f7c77a1d751f72.css?body=1" for 127.0.0.1 at 2015-03-09 22:06:23 -0400
+
+
+Started GET "/assets/application-6d378e8a75648b0dcf72466753b6b161.css?body=1" for 127.0.0.1 at 2015-03-09 22:06:23 -0400
+
+
+Started GET "/assets/jquery_ujs-0b8f09cf5aec4ba1be1abd9f915c77e2.js?body=1" for 127.0.0.1 at 2015-03-09 22:06:23 -0400
+
+
+Started GET "/assets/jquery-eb3e278249152b5b5d5170b73d9dbf52.js?body=1" for 127.0.0.1 at 2015-03-09 22:06:23 -0400
+
+
+Started GET "/assets/turbolinks-924184401b7d116eadaaefc96895fa84.js?body=1" for 127.0.0.1 at 2015-03-09 22:06:23 -0400
+
+
+Started GET "/assets/application-9d71a2f6dda6b569ca80f60714aabe8b.js?body=1" for 127.0.0.1 at 2015-03-09 22:06:23 -0400
+
+
+Started GET "/assets/products-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-03-09 22:06:23 -0400
+
+
+Started GET "/products/new" for 127.0.0.1 at 2015-03-09 22:06:53 -0400
+Processing by ProductsController#new as HTML
+  Rendered products/_form.html.erb (129.1ms)
+  Rendered products/new.html.erb within layouts/application (131.7ms)
+Completed 200 OK in 213ms (Views: 194.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2015-03-09 22:09:23 -0400
+Processing by ProductsController#new as HTML
+  Rendered products/_form.html.erb (5.1ms)
+  Rendered products/new.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 153ms (Views: 151.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/scaffolds-6a4f011ba1d3796608f7c77a1d751f72.css?body=1" for 127.0.0.1 at 2015-03-09 22:09:24 -0400
+
+
+Started GET "/assets/application-6d378e8a75648b0dcf72466753b6b161.css?body=1" for 127.0.0.1 at 2015-03-09 22:09:24 -0400
+
+
+Started GET "/assets/jquery_ujs-0b8f09cf5aec4ba1be1abd9f915c77e2.js?body=1" for 127.0.0.1 at 2015-03-09 22:09:24 -0400
+
+
+Started GET "/assets/turbolinks-924184401b7d116eadaaefc96895fa84.js?body=1" for 127.0.0.1 at 2015-03-09 22:09:24 -0400
+
+
+Started GET "/assets/jquery-eb3e278249152b5b5d5170b73d9dbf52.js?body=1" for 127.0.0.1 at 2015-03-09 22:09:24 -0400
+
+
+Started GET "/assets/products-069e88c06b889877799890854d7f4c40.css?body=1" for 127.0.0.1 at 2015-03-09 22:09:24 -0400
+
+
+Started GET "/assets/products-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-03-09 22:09:24 -0400
+
+
+Started GET "/assets/application-9d71a2f6dda6b569ca80f60714aabe8b.js?body=1" for 127.0.0.1 at 2015-03-09 22:09:24 -0400
+
+
+Started POST "/products" for 127.0.0.1 at 2015-03-09 22:10:30 -0400
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Y50q89EBQ7EtyVYhlQzFkOitnKobOjVK8MZB8DerP6nv2LCCeSjDa/Fyaf2WxPPcvD1tlE9ryzcL3KdSLQ8uiQ==", "product"=>{"title"=>"Chris's Penis", "description"=>"Oh my!", "image_url"=>"", "price"=>""}, "commit"=>"Create Product"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "products" ("title", "description", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Chris's Penis"], ["description", "Oh my!"], ["image_url", ""], ["created_at", "2015-03-10 02:10:30.368799"], ["updated_at", "2015-03-10 02:10:30.368799"]]
+  [1m[36m (176.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/products/1
+Completed 302 Found in 191ms (ActiveRecord: 177.4ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at 2015-03-09 22:10:30 -0400
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProduct Load (0.3ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered products/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 182ms (Views: 144.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/products-069e88c06b889877799890854d7f4c40.css?body=1" for 127.0.0.1 at 2015-03-09 22:10:31 -0400
+
+
+Started GET "/assets/scaffolds-6a4f011ba1d3796608f7c77a1d751f72.css?body=1" for 127.0.0.1 at 2015-03-09 22:10:31 -0400
+
+
+Started GET "/assets/jquery-eb3e278249152b5b5d5170b73d9dbf52.js?body=1" for 127.0.0.1 at 2015-03-09 22:10:31 -0400
+
+
+Started GET "/assets/turbolinks-924184401b7d116eadaaefc96895fa84.js?body=1" for 127.0.0.1 at 2015-03-09 22:10:31 -0400
+
+
+Started GET "/assets/application-6d378e8a75648b0dcf72466753b6b161.css?body=1" for 127.0.0.1 at 2015-03-09 22:10:31 -0400
+
+
+Started GET "/assets/jquery_ujs-0b8f09cf5aec4ba1be1abd9f915c77e2.js?body=1" for 127.0.0.1 at 2015-03-09 22:10:31 -0400
+
+
+Started GET "/assets/products-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-03-09 22:10:31 -0400
+
+
+Started GET "/assets/application-9d71a2f6dda6b569ca80f60714aabe8b.js?body=1" for 127.0.0.1 at 2015-03-09 22:10:31 -0400
+
+
+Started GET "/products" for 127.0.0.1 at 2015-03-09 22:10:33 -0400
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 77ms (Views: 75.3ms | ActiveRecord: 0.4ms)
