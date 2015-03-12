@@ -176,3 +176,61 @@ Processing by ProductsController#index as HTML
   [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"[0m
   Rendered products/index.html.erb within layouts/application (5.4ms)
 Completed 200 OK in 77ms (Views: 75.3ms | ActiveRecord: 0.4ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mSQL (150.8ms)[0m  DELETE FROM "products"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "products" ("title", "description", "image_url", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "CoffeeScript"], ["description", "<p>\n        CoffeeScript is JavaScript done right. It provides all of JavaScript's\n\tfunctionality wrapped in a cleaner, more succinct syntax. In the first\n\tbook on this exciting new language, CoffeeScript guru Trevor Burnham\n\tshows you how to hold onto all the power and flexibility of JavaScript\n\twhile writing clearer, cleaner, and safer code.\n      </p>"], ["image_url", "cs.jpg"], ["price", 36.0], ["created_at", "2015-03-12 02:16:51.534259"], ["updated_at", "2015-03-12 02:16:51.534259"]]
+  [1m[36m (130.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "products" ("title", "description", "image_url", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Programming Ruby 1.9 & 2.0"], ["description", "<p>\n        Ruby is the fastest growing and most exciting dynamic language\n        out there. If you need to get working programs delivered fast,\n        you should add Ruby to your toolbox.\n      </p>"], ["image_url", "ruby.jpg"], ["price", 49.95], ["created_at", "2015-03-12 02:16:51.700196"], ["updated_at", "2015-03-12 02:16:51.700196"]]
+  [1m[35m (149.9ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "products" ("title", "description", "image_url", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Rails Test Prescriptions"], ["description", "<p>\n        <em>Rails Test Prescriptions</em> is a comprehensive guide to testing\n        Rails applications, covering Test-Driven Development from both a\n        theoretical perspective (why to test) and from a practical perspective\n        (how to test effectively). It covers the core Rails testing tools and\n        procedures for Rails 2 and Rails 3, and introduces popular add-ons,\n        including Cucumber, Shoulda, Machinist, Mocha, and Rcov.\n      </p>"], ["image_url", "rtp.jpg"], ["price", 34.95], ["created_at", "2015-03-12 02:16:51.857502"], ["updated_at", "2015-03-12 02:16:51.857502"]]
+  [1m[36m (172.1ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-11 22:49:13 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/ccline/.rvm/gems/ruby-2.0.0-p481/gems/railties-4.2.0/lib/rails/templates/rails/welcome/index.html.erb (5.8ms)
+Completed 200 OK in 150ms (Views: 90.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2015-03-11 22:49:24 -0400
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.5ms)[0m  SELECT "products".* FROM "products"
+  Rendered products/index.html.erb within layouts/application (172.5ms)
+Completed 200 OK in 572ms (Views: 567.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/products-220f3812990639e1aa12c5fdcf87510f.css?body=1" for 127.0.0.1 at 2015-03-11 22:49:25 -0400
+
+
+Started GET "/assets/scaffolds-6a4f011ba1d3796608f7c77a1d751f72.css?body=1" for 127.0.0.1 at 2015-03-11 22:49:25 -0400
+
+
+Started GET "/assets/application-8b440296506bd49b3798523114a0a25b.css?body=1" for 127.0.0.1 at 2015-03-11 22:49:25 -0400
+
+
+Started GET "/assets/jquery-eb3e278249152b5b5d5170b73d9dbf52.js?body=1" for 127.0.0.1 at 2015-03-11 22:49:26 -0400
+
+
+Started GET "/assets/jquery_ujs-0b8f09cf5aec4ba1be1abd9f915c77e2.js?body=1" for 127.0.0.1 at 2015-03-11 22:49:26 -0400
+
+
+Started GET "/assets/turbolinks-924184401b7d116eadaaefc96895fa84.js?body=1" for 127.0.0.1 at 2015-03-11 22:49:26 -0400
+
+
+Started GET "/assets/products-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-03-11 22:49:26 -0400
+
+
+Started GET "/assets/application-9d71a2f6dda6b569ca80f60714aabe8b.js?body=1" for 127.0.0.1 at 2015-03-11 22:49:26 -0400
+
+
+Started GET "/assets/cs-56522a36e41369d5162f1201ff6b27fd.jpg" for 127.0.0.1 at 2015-03-11 22:49:26 -0400
+
+
+Started GET "/assets/ruby-a5deb70181ff2d6c0ffe5181e14ce3a9.jpg" for 127.0.0.1 at 2015-03-11 22:49:26 -0400
+
+
+Started GET "/assets/rtp-00f69bd620e54dba12d6f24d5e81be1c.jpg" for 127.0.0.1 at 2015-03-11 22:49:26 -0400
